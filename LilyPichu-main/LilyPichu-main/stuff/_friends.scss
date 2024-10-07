@@ -1,0 +1,146 @@
+@use '../selectors';
+:root {
+	// Right friend list
+	#{selectors.$privateChannels} {
+		#{selectors.$interactive} {
+			border-radius: var(--border-radius);
+		}
+	}
+
+	// Friends activity
+	@media (min-width: 1350px) {
+		#{selectors.$nowPlayingColumn} {
+			position: fixed;
+			top: 280px;
+			bottom: 120px;
+			right: 60px;
+			width: 320px;
+			min-width: unset;
+			background-color: none;
+
+			#{selectors.$scroller} {
+				border-left: none;
+				margin-left: 0;
+			}
+
+			// Header
+			&::before {
+				content: "Friends activity";
+				position: absolute;
+				top: -60px;
+				z-index: 1;
+				width: 100%;
+				height: 60px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 20px;
+				font-weight: bolder;
+				color: var(--header-primary);
+				background-color: var(--background-secondary);
+				border-radius: var(--border-radius) var(--border-radius) 0 0;
+			}
+
+			// Footer
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: -35px;
+				z-index: 1;
+				width: 100%;
+				height: 35px;
+				background-color: var(--background-secondary);
+				border-radius: 0 0 var(--border-radius) var(--border-radius);
+				background-image: linear-gradient( to right, var(--header-primary) 33%, rgba(255, 255, 255, 0) 0%);
+				background-position: top;
+				background-size: 21px 2px;
+				background-repeat: repeat-x;
+			}
+		}
+
+		#{selectors.$content} > #{selectors.$profilePanel} {
+			position: fixed;
+			top: 220px;
+			right: 60px;
+			bottom: 85px;
+			width: 320px;
+			border-radius: var(--border-radius);
+			overflow: hidden;
+		}
+
+	}
+
+	// Friend list
+	main#{selectors.$container}[aria-label="Friends"] {
+		background-color: var(--background-primary);
+
+		#{selectors.$searchBar} {
+			background-color: var(--background-secondary);
+		}
+
+		#{selectors.$upperContainer} > #{selectors.$children}:after {
+			content: none;
+		}
+		#{selectors.$peopleColumn} {
+			background: unset;
+		}
+
+		#{selectors.$peopleListItem} {
+			border-radius: var(--border-radius);
+			border-top: none;
+			background: var(--background-modifier-hover);
+			margin: 8px 10px 8px 20px;
+			padding: 16px 10px;
+
+			&:hover #{selectors.$actionButton} {
+				background-color: var(--background-secondary-alt);
+			}
+		}
+	}
+
+	// Friend call
+	.nowPlayingColumn_b025fe .scroller__00e7e { // TODO: update
+		border: none;
+	}
+	.controlButton_ab2899 foreignObject { // TODO: update
+		mask: none;
+	}
+	.colorable_c84c4c.primaryDark__6b700 { // TODO: update
+		background-color: var(--background-primary);
+	}
+	.wrapper_bd2abe { // TODO: update
+		background-color: var(--background-tertiary);
+	}
+
+	// Friend activity
+	#{selectors.$nowPlayingColumn} {
+		#{selectors.$inset} {
+			background-color: var(--background-primary);
+		}
+		.separator_c2ecc6 { // TODO: what was this? cant find any separators?
+			display: none;
+		}
+		.voiceSectionIconWrapper_c50254 {
+			background-color: var(--background-tertiary);
+		}
+		#{selectors.$outer}#{selectors.$interactive}:hover {
+			background-color: var(--activity-card-background);
+		}
+		#{selectors.$itemCard} {
+			border: none;
+			border-radius: var(--border-radius);
+
+			#{selectors.$body} {
+				border-radius: calc(var(--border-radius) - 10px);
+			}
+		}
+	}
+	// Regionnal selector friend call // TODO
+	.quickSelectPopout_c0cf80.regionSelectPopout__0127b {
+		background-color: var(--background-secondary-alt);
+	}
+
+	.profilePanelConnections__3c232 {
+		background-color: transparent;
+	}
+}
